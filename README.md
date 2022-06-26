@@ -1,7 +1,7 @@
-# Data-science-
-things done in these projects:
-1. extraction of Data using SQL queries from sky server
+# 5 Band SDSS photometry
+Here we predict the metellacity of galaxies from photometric data
+Things done in these projects:
+1. extraction of Data using SQL queries from casJobs/sky server
 2. data cleaning,processing and visualising
-3. six types of ML models and hypertuning
-4. neural network using keras
-5. plotting metrics and ranking of features
+3. five types of ML models and hypertuning
+4. plotting metrics and ranking of features
