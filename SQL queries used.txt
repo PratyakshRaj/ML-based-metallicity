@@ -36,7 +36,22 @@ FROM Galaxy AS g,
   SpecObj AS s,
   photoZ as p
 WHERE
-  s.specobjid = g.specobjid
+  s.specobjid = g.specobjid     first you need to JOIN necessarily
   and p.objid=g.objid
   and s.z>0.03 and s.z<0.3
 ---------------------------------------------------------------------------------
+# summing up all the prices of each category and passing out the maximum price on a given date from three different tables # 
+#also MAX(SUM()) don't work #
+
+
+SELECT us.created,ls.category_name,sum(ls.price) AS max_price
+
+FROM users as us
+ JOIN listings AS ls ON us.user_id = ls.lister_id  
+ Join transactions AS ts ON ts.item_id=ls.item_id
+
+WHERE ts.item_id=ls.item_id
+ And SUBSTRING(us.created,1,7)="2019-09"
+
+GROUP BY ls.category_name
+order By sum(ls.price) DESC LIMIT 1
